@@ -13,7 +13,7 @@ public class BioDemo1 {
         ExecutorService executorService= Executors.newCachedThreadPool();
         //创建serversocket
         ServerSocket serverSocket=new ServerSocket(6666);
-        System.out.println("server started");
+        System.out.println("server started...");
         //监听，等待连接
         while (true){
             //连接成功
@@ -34,7 +34,7 @@ public class BioDemo1 {
             while(true){
                 int length = inputStream.read(bytes);
                 if(length!=-1){
-                    System.out.println(new String(bytes,0,length));
+                    System.out.print(new String(bytes,0,length));
                 }else break;
             }
 
