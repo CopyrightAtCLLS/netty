@@ -31,6 +31,7 @@ public class BioDemo1 {
             //通过socket获取输入流
             InputStream inputStream = socket.getInputStream();
 
+            System.out.println("Thread ID : "+Thread.currentThread().getId()+" Thread name : "+Thread.currentThread().getName());
             //读取数据
             while(true){
                 int length = inputStream.read(bytes);
