@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.sql.Array;
+import java.util.Arrays;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
@@ -18,36 +20,38 @@ public class BioDemo1 {
         while (true){
             //连接成功
             final Socket socket=serverSocket.accept();
-            System.out.println("established");
+            System.out.println("established\n");
             //创建线程进行通信
             executorService.execute(()->{communicate(socket);});
-
         }
     }
     public static void communicate(Socket socket){
         try {
-            byte[] bytes = new byte[1024];
+            byte[] bytes = new byte[10];
             //通过socket获取输入流
             InputStream inputStream = socket.getInputStream();
 
             //读取数据
             while(true){
                 int length = inputStream.read(bytes);
+//                System.out.println(Arrays.toString(bytes));
                 if(length!=-1){
-                    System.out.print(new String(bytes,0,length));
+                    //                                     -1是因为不让bytes的最后一位被打印
+                    //                                     经过打印测试，mac终端按下回车后，
+                    //                                     bytes数组会存储ASCII 13和10
+                    //                                     也就是回车和换行
+                    System.out.println(new String(bytes,0,length-1));
                 }else break;
             }
-
         } catch (IOException e) {
             e.printStackTrace();
         }finally {
             try {
                 socket.close();
-                System.out.println("connection shut down");
+                System.out.println("\nconnection shut down");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
-
     }
 }
