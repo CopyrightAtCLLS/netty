@@ -24,6 +24,5 @@ public class ChannelDemo1 {
         channel.write(buffer);
 
         outputStream.close();
-
     }
 }
