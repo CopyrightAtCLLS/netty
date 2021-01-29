@@ -17,7 +17,7 @@ public class ChannelRW {
         FileOutputStream outputStream = new FileOutputStream("/tmp/nettyChannelCopy");
         FileChannel outputStreamChannel = outputStream.getChannel();
 
-        ByteBuffer buffer = ByteBuffer.allocate(512);
+        ByteBuffer buffer = ByteBuffer.allocate(5);
 
         while (true) {
             //一定要给buffer复位
@@ -29,5 +29,7 @@ public class ChannelRW {
             outputStreamChannel.write(buffer);
         }
 
+        inputStream.close();
+        outputStream.close();
     }
 }
