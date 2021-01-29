@@ -23,6 +23,5 @@ public class MappedByteBufferDemo {
         buffer.put(1,(byte)'e');
 
         file.close();
-
     }
 }
