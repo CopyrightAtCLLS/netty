@@ -13,7 +13,7 @@ public class ChannelWrite {
     public static void main(String[] args) throws IOException {
         String str="channel demo";
         //创建输出流
-        FileOutputStream outputStream = new FileOutputStream("/tmp/nettyChannel");
+        FileOutputStream outputStream = new FileOutputStream("origin.txt");
         //通过outputStream获取对应的FileChannel
         FileChannel channel = outputStream.getChannel();
         //创建ByteBuffer

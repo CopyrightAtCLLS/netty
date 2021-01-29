@@ -11,7 +11,7 @@ import java.nio.channels.FileChannel;
  */
 public class ChannelTransPic {
     public static void main(String[] args) throws IOException {
-        FileInputStream inputStream = new FileInputStream("/Users/chenlvlongshen/Desktop/doge.jpg");
+        FileInputStream inputStream = new FileInputStream("/Users/clls/Desktop/doge.jpg");
         FileChannel inputStreamChannel = inputStream.getChannel();
 
         FileOutputStream outputStream = new FileOutputStream("doge.jpg");

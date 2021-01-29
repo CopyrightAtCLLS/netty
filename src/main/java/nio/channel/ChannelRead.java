@@ -8,7 +8,7 @@ import java.nio.channels.FileChannel;
 
 public class ChannelRead {
     public static void main(String[] args) throws IOException {
-        File file=new File("/tmp/nettyChannel");
+        File file=new File("origin.txt");
         FileInputStream inputStream = new FileInputStream(file);
 
         FileChannel channel = inputStream.getChannel();

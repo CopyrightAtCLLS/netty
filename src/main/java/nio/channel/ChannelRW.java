@@ -11,10 +11,10 @@ import java.nio.channels.FileChannel;
  */
 public class ChannelRW {
     public static void main(String[] args) throws IOException {
-        FileInputStream inputStream = new FileInputStream("/tmp/nettyChannel");
+        FileInputStream inputStream = new FileInputStream("origin.txt");
         FileChannel inputStreamChannel = inputStream.getChannel();
 
-        FileOutputStream outputStream = new FileOutputStream("/tmp/nettyChannelCopy");
+        FileOutputStream outputStream = new FileOutputStream("copy.txt");
         FileChannel outputStreamChannel = outputStream.getChannel();
 
         ByteBuffer buffer = ByteBuffer.allocate(5);
