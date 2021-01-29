@@ -9,7 +9,7 @@ import java.nio.channels.FileChannel;
 /**
  * 写入数据到本地文件
  */
-public class ChannelDemo1 {
+public class ChannelWrite {
     public static void main(String[] args) throws IOException {
         String str="channel demo";
         //创建输出流
