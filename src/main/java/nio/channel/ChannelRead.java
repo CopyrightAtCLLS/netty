@@ -17,6 +17,6 @@ public class ChannelRead {
         channel.read(buffer);
         System.out.println(new String(buffer.array()));
 
-        channel.close();
+        inputStream.close();
     }
 }
