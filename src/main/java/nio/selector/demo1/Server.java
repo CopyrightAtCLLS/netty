@@ -4,10 +4,12 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
+import java.util.Iterator;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 public class Server {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         ServerSocketChannel serverSocketChannel = ServerSocketChannel.open();
         Selector selector = Selector.open();
         //绑定端口
@@ -25,12 +27,16 @@ public class Server {
                 System.out.println("1s , no request");
                 continue;
             }
+
             //如果有请求,获取selectionKey集合
             Set<SelectionKey> selectionKeys=selector.selectedKeys();
-            for (SelectionKey selectionKey : selectionKeys) {
+            Iterator<SelectionKey> iterator=selectionKeys.iterator();
+            while (iterator.hasNext()){
+                SelectionKey selectionKey=iterator.next();
                 if(selectionKey.isAcceptable()){//OP_ACCEPT
                     //生成socketChannel
                     SocketChannel socketChannel = serverSocketChannel.accept();
+                    socketChannel.configureBlocking(false);
                     //注册socketChannel到selector,关注事件为 OP_READ，同时关联一个buffer
                     socketChannel.register(selector,SelectionKey.OP_READ, ByteBuffer.allocate(1024));
                 }
@@ -39,11 +45,11 @@ public class Server {
                     SocketChannel channel = (SocketChannel)selectionKey.channel();
                     //获取该channel的buffer
                     ByteBuffer buffer = (ByteBuffer)selectionKey.attachment();
-                    channel.read(buffer);
-                    System.out.println("data : "+new String(buffer.array()));
+                    int length = channel.read(buffer);
+                    System.out.println("data : "+new String(buffer.array(),0,length));
                 }
                 //从集合移除key，防止重复操作
-//                selectionKey
+                iterator.remove();
             }
         }
     }
