@@ -46,6 +46,7 @@ public class Server {
                     //获取该channel的buffer
                     ByteBuffer buffer = (ByteBuffer)selectionKey.attachment();
                     int length = channel.read(buffer);
+                    if(length!=-1)
                     System.out.println("data : "+new String(buffer.array(),0,length));
                 }
                 //从集合移除key，防止重复操作
