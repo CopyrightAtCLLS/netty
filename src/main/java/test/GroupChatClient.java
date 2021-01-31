@@ -36,7 +36,7 @@ public class GroupChatClient {
     //向服务器发送消息
     public void sendInfo(String info) {
 
-        info = username + " 说：" + info;
+        info = username + " : " + info;
         try {
             socketChannel.write(ByteBuffer.wrap(info.getBytes()));
         }catch (IOException e) {
