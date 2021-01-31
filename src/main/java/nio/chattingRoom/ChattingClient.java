@@ -77,7 +77,5 @@ public class ChattingClient {
             String s = scanner.nextLine();
             chattingClient.send(s);
         }
-
-
     }
 }
