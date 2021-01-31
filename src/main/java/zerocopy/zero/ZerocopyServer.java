@@ -1,4 +1,4 @@
-package zerocopy;
+package zerocopy.zero;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
