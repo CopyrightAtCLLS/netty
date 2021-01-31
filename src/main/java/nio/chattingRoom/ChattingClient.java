@@ -22,6 +22,7 @@ public class ChattingClient {
         socketChannel.configureBlocking(false);
         socketChannel.register(selector, SelectionKey.OP_READ);
         username = socketChannel.getLocalAddress().toString();
+        System.out.println(username+" 上线");
     }
 
     public void send(String info) {
