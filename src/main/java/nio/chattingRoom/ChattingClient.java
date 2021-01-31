@@ -44,8 +44,8 @@ public class ChattingClient {
                         SocketChannel socketChannel = (SocketChannel) key.channel();
                         ByteBuffer buffer = ByteBuffer.allocate(1024);
                         int length = socketChannel.read(buffer);
-                        String msg = new String(buffer.array(),0,length);
-                        System.out.println(msg);
+                        if(length!=-1)
+                            System.out.println(new String(buffer.array(),0,length));
                     }
                     iterator.remove();
                 }

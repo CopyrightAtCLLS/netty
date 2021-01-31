@@ -80,13 +80,6 @@ public class ChattingServer {
 
     private void forward(String msg, SocketChannel self) throws IOException {
         System.out.println("Forwarding...");
-//        for (SelectionKey key : selector.keys()) {
-//            SocketChannel channel = (SocketChannel) key.channel();
-//            if (channel != self) {
-//                ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
-//                channel.write(buffer);
-//            }
-//        }
         for (SelectionKey key : selector.keys()) {
             Channel channel = key.channel();
             if (channel instanceof SocketChannel&&channel != self) {
@@ -94,6 +87,13 @@ public class ChattingServer {
                 ((SocketChannel) channel).write(buffer);
             }
         }
+//        for (SelectionKey key : selector.keys()) {
+//            Channel channel = key.channel();
+//            if (channel instanceof SocketChannel&&channel != self) {
+//                ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
+//                ((SocketChannel) channel).write(buffer);
+//            }
+//        }
     }
 
     public static void main(String[] args) {
