@@ -10,6 +10,7 @@ public class ZerocopyClient {
     public static void main(String[] args) throws IOException {
         SocketChannel socketChannel=SocketChannel.open();
         socketChannel.connect(new InetSocketAddress(7001));
+
         String filename="/Users/chenlvlongshen/Desktop/IMG_6490.JPG";
 
         FileChannel channel = new FileInputStream(filename).getChannel();
