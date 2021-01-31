@@ -50,7 +50,6 @@ public class ChattingServer {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
         }
     }
 
@@ -69,9 +68,9 @@ public class ChattingServer {
         } catch (IOException e) {
             try {
                 //取消注册
+                System.out.println(channel.getRemoteAddress() + " 离开房间");
                 key.cancel();
                 channel.close();
-                System.out.println(channel.getRemoteAddress() + " 离开房间");
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -87,13 +86,6 @@ public class ChattingServer {
                 ((SocketChannel) channel).write(buffer);
             }
         }
-//        for (SelectionKey key : selector.keys()) {
-//            Channel channel = key.channel();
-//            if (channel instanceof SocketChannel&&channel != self) {
-//                ByteBuffer buffer = ByteBuffer.wrap(msg.getBytes());
-//                ((SocketChannel) channel).write(buffer);
-//            }
-//        }
     }
 
     public static void main(String[] args) {
