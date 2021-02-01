@@ -25,7 +25,7 @@ public class NettyServer {
                     //给pipeline设置处理器
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        socketChannel.pipeline().addLast(null);
+                        socketChannel.pipeline().addLast(new NettyServerHandler());
                     }
                 });//给workerGroup的eventloop对应的管道设置处理器
         System.out.println("Server Online...");
