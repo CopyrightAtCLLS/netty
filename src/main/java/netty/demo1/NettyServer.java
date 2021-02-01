@@ -12,7 +12,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 public class NettyServer {
     public static void main(String[] args) throws InterruptedException {
         //创建Bossgroup和Workergroup
-        EventLoopGroup bossGroup = new NioEventLoopGroup();
+        //boosGroup和workerGroup子线程(NioEventLoop)个数默认是cpu核数*2
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         try {
