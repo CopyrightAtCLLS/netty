@@ -2,11 +2,10 @@ package netty.bytebuf.demo2;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import io.netty.util.CharsetUtil;
 
 import java.nio.charset.Charset;
 
-public class Buf {
+public class BufDemo2 {
     public static void main(String[] args) {
         ByteBuf buffer = Unpooled.copiedBuffer("hello,world!你", Charset.forName("utf-8"));
         if(buffer.hasArray()){
