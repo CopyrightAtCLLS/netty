@@ -23,7 +23,7 @@ public class NettyServer {
                     .channel(NioServerSocketChannel.class)//设置NioSocketChannel作为通道实现
                     .option(ChannelOption.SO_BACKLOG, 128)//设置线程队列等待连接的个数
                     .childOption(ChannelOption.SO_KEEPALIVE, true)//保持活动连接状态
-                    .childHandler(new ChannelInitializer<SocketChannel>() {//创建一个通道测试对象
+                    .childHandler(new ChannelInitializer<SocketChannel>() {//创建一个通道初始对象
                         //给pipeline设置处理器
                         @Override
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
