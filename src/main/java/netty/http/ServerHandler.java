@@ -22,7 +22,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<HttpObject>{
             System.out.println("客户端地址 = " + channelHandlerContext.channel().remoteAddress());
             //获取请求header
             HttpRequest httpRequest=(HttpRequest)httpObject;
-            //获取uri
+            //获取uri,过滤特定资源
             URI uri = new URI(((HttpRequest) httpObject).uri());
             if("/favicon.ico".equals(uri.getPath())){
                 System.out.println("请求了favicon.ico，不做响应");
