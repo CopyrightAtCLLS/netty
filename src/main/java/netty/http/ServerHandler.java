@@ -13,17 +13,17 @@ import io.netty.util.CharsetUtil;
  */
 public class ServerHandler extends SimpleChannelInboundHandler<HttpObject> {
     @Override
-    protected void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) throws Exception {
+    protected void channelRead0(ChannelHandlerContext channelHandlerContext, HttpObject httpObject) {
         //判断httpObject是不是Httprequest请求
-        if(httpObject instanceof HttpRequest){
-            System.out.println("msg类型 = "+httpObject.getClass());
-            System.out.println("客户端地址 = "+channelHandlerContext.channel().remoteAddress());
+        if (httpObject instanceof HttpRequest) {
+            System.out.println("msg类型 = " + httpObject.getClass());
+            System.out.println("客户端地址 = " + channelHandlerContext.channel().remoteAddress());
             //回复信息给浏览器[http]
-            ByteBuf content= Unpooled.copiedBuffer("hello，我是服务器", CharsetUtil.UTF_8);
+            ByteBuf content = Unpooled.copiedBuffer("hello，我是服务器", CharsetUtil.UTF_8);
             //构造http响应
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
-            response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=utf-8");
-            response.headers().set(HttpHeaderNames.CONTENT_LENGTH,content.readableBytes());
+            response.headers().set(HttpHeaderNames.CONTENT_TYPE, "text/plain;charset=utf-8");
+            response.headers().set(HttpHeaderNames.CONTENT_LENGTH, content.readableBytes());
             //返回
             channelHandlerContext.writeAndFlush(response);
         }
