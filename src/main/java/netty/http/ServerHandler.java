@@ -22,7 +22,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<HttpObject> {
             ByteBuf content= Unpooled.copiedBuffer("hello，我是服务器", CharsetUtil.UTF_8);
             //构造http响应
             FullHttpResponse response = new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.OK, content);
-            response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain");
+            response.headers().set(HttpHeaderNames.CONTENT_TYPE,"text/plain;charset=utf-8");
             response.headers().set(HttpHeaderNames.CONTENT_LENGTH,content.readableBytes());
             //返回
             channelHandlerContext.writeAndFlush(response);
