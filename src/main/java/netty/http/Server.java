@@ -9,9 +9,9 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import netty.demo1.NettyServerHandler;
-
+@SuppressWarnings("all")
 public class Server {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         //创建Bossgroup和Workergroup
         //boosGroup和workerGroup子线程(NioEventLoop)个数默认是cpu核数*2
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
