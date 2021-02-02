@@ -35,7 +35,7 @@ public class Server {
                             //向pipiline加入编码器
                             pipeline.addLast("encoder", new StringDecoder());
                             //加入自定义handler
-                            pipeline.addLast(null);
+                            pipeline.addLast(new ServerHandler());
                         }
                     });
             System.out.println("chantting room Server online...");
