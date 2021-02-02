@@ -28,7 +28,7 @@ public class Server {
             System.out.println("Server Online...");
             //绑定端口并同步，生成ChannelFuture对象
             //启动服务器
-            ChannelFuture channelFuture = bootstrap.bind(6668).sync();
+            ChannelFuture channelFuture = bootstrap.bind(9999).sync();
             //对关闭通道进行监听
             channelFuture.channel().closeFuture().sync();
         }finally {
