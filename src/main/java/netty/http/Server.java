@@ -1,4 +1,4 @@
-package netty.demo1;
+package netty.http;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,9 +8,10 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-@SuppressWarnings("all")
-public class NettyServer {
-    public static void main(String[] args) throws InterruptedException {
+import netty.demo1.NettyServerHandler;
+
+public class Server {
+    public static void main(String[] args) {
         //创建Bossgroup和Workergroup
         //boosGroup和workerGroup子线程(NioEventLoop)个数默认是cpu核数*2
         EventLoopGroup bossGroup = new NioEventLoopGroup(1);
@@ -40,5 +41,6 @@ public class NettyServer {
             bossGroup.shutdownGracefully();
             workerGroup.shutdownGracefully();
         }
+
     }
 }
