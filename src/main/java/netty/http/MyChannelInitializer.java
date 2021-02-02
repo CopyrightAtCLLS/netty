@@ -15,6 +15,6 @@ public class MyChannelInitializer extends ChannelInitializer<SocketChannel> {
         //加入netty提供的HttpServerCodec     codec =>[coder - decoder]
         //HttpServerCodec是netty提供的处理http的编码解码器
         pipeline.addLast("MyHttpServerCodec",new HttpServerCodec());
-
+        pipeline.addLast("MyServerHandler",new ServerHandler());
     }
 }
