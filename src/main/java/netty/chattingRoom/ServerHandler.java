@@ -8,6 +8,7 @@ import io.netty.channel.group.DefaultChannelGroup;
 import io.netty.util.concurrent.GlobalEventExecutor;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class ServerHandler extends SimpleChannelInboundHandler<String> {
     //定义一个channel组，管理所有的channel
@@ -22,7 +23,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
         Channel channel=ctx.channel();
         //将该客户加入聊天的信息推送给其它客户端
         //该方法会遍历channelGroup所有channel并发送信息
-        channelGroup.writeAndFlush("[客户端] ["+channel.remoteAddress()+"] 加入聊天\n");
+        channelGroup.writeAndFlush(simpleDateFormat.format(new Date())+"[客户端] ["+channel.remoteAddress()+"] 加入聊天\n");
         channelGroup.add(channel);
     }
 
@@ -30,7 +31,7 @@ public class ServerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
         Channel channel = ctx.channel();
-        channelGroup.writeAndFlush("[客户端] ["+channel.remoteAddress()+"] 离开房间\n");
+        channelGroup.writeAndFlush(simpleDateFormat.format(new Date())+"[客户端] ["+channel.remoteAddress()+"] 离开房间\n");
     }
 
     //表示channel处于活动状态，提示xxx上线
