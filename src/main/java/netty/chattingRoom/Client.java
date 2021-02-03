@@ -35,7 +35,7 @@ public class Client {
                             //向pipiline加入编码器
                             pipeline.addLast("encoder", new StringDecoder());
                             //自定义handler
-                            pipeline.addLast(null);
+                            pipeline.addLast(new ClientHandler());
                         }
                     });
             ChannelFuture channelFuture = bootstrap.connect(host, port).sync();
