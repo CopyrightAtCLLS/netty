@@ -6,6 +6,7 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 public class Server {
     private int port;
@@ -33,7 +34,7 @@ public class Server {
                             //向pipiline加入解码器
                             pipeline.addLast("decoder", new StringDecoder());
                             //向pipiline加入编码器
-                            pipeline.addLast("encoder", new StringDecoder());
+                            pipeline.addLast("encoder", new StringEncoder());
                             //加入自定义handler
                             pipeline.addLast(new ServerHandler());
                         }

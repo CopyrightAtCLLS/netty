@@ -1,14 +1,12 @@
 package netty.chattingRoom;
 
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.Channel;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
-import io.netty.channel.ChannelPipeline;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
 
 import java.util.Scanner;
 
@@ -21,7 +19,7 @@ public class Client {
     }
 
     public void run() throws InterruptedException {
-        NioEventLoopGroup group = new NioEventLoopGroup();
+        EventLoopGroup group = new NioEventLoopGroup();
         try {
             Bootstrap bootstrap = new Bootstrap()
                     .group(group)
@@ -33,7 +31,7 @@ public class Client {
                             //向pipiline加入解码器
                             pipeline.addLast("decoder", new StringDecoder());
                             //向pipiline加入编码器
-                            pipeline.addLast("encoder", new StringDecoder());
+                            pipeline.addLast("encoder", new StringEncoder());
                             //自定义handler
                             pipeline.addLast(new ClientHandler());
                         }
