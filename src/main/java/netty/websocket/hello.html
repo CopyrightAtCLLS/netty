@@ -9,7 +9,7 @@
     var socket;
     //判断浏览器是否支持websocket编程
     if (window.WebSocket) {
-        socket = new WebSocket("ws://localhost:7000/hello");
+        socket = new WebSocket("ws://localhost:9999/hello");
         //socket.onmessage相当于channelRead0，ev可以收到服务器回送的消息
         socket.onmessage = function (ev) {
             var rt = document.getElementById("responseText");

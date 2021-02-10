@@ -59,7 +59,7 @@ public class Server {
             workerGroup.shutdownGracefully();
         }
     }
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws Exception {
+        new Server().run();
     }
 }
