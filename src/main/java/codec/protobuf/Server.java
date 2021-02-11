@@ -1,4 +1,4 @@
-package netty.chattingRoom;
+package codec.protobuf;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;

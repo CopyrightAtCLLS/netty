@@ -1,4 +1,4 @@
-package netty.chattingRoom;
+package codec.protobuf;
 
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
