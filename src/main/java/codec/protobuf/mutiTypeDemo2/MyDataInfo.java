@@ -24,6 +24,7 @@ public final class MyDataInfo {
      * </pre>
      *
      * <code>.MyMessage.DataType data_type = 1;</code>
+     * @return The enum numeric value on the wire for dataType.
      */
     int getDataTypeValue();
     /**
@@ -32,15 +33,18 @@ public final class MyDataInfo {
      * </pre>
      *
      * <code>.MyMessage.DataType data_type = 1;</code>
+     * @return The dataType.
      */
     codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType getDataType();
 
     /**
      * <code>.Student student = 2;</code>
+     * @return Whether the student field is set.
      */
     boolean hasStudent();
     /**
      * <code>.Student student = 2;</code>
+     * @return The student.
      */
     codec.protobuf.mutiTypeDemo2.MyDataInfo.Student getStudent();
     /**
@@ -50,10 +54,12 @@ public final class MyDataInfo {
 
     /**
      * <code>.Worker worker = 3;</code>
+     * @return Whether the worker field is set.
      */
     boolean hasWorker();
     /**
      * <code>.Worker worker = 3;</code>
+     * @return The worker.
      */
     codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker getWorker();
     /**
@@ -70,7 +76,7 @@ public final class MyDataInfo {
    *
    * Protobuf type {@code MyMessage}
    */
-  public  static final class MyMessage extends
+  public static final class MyMessage extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:MyMessage)
       MyMessageOrBuilder {
@@ -81,6 +87,13 @@ public final class MyDataInfo {
     }
     private MyMessage() {
       dataType_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new MyMessage();
     }
 
     @java.lang.Override
@@ -96,7 +109,6 @@ public final class MyDataInfo {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -142,7 +154,7 @@ public final class MyDataInfo {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -187,9 +199,9 @@ public final class MyDataInfo {
        *在proto3开始，编号从0开始
        * </pre>
        *
-       * <code>StudentTyp = 0;</code>
+       * <code>StudentType = 0;</code>
        */
-      StudentTyp(0),
+      StudentType(0),
       /**
        * <code>WorkerType = 1;</code>
        */
@@ -202,9 +214,9 @@ public final class MyDataInfo {
        *在proto3开始，编号从0开始
        * </pre>
        *
-       * <code>StudentTyp = 0;</code>
+       * <code>StudentType = 0;</code>
        */
-      public static final int StudentTyp_VALUE = 0;
+      public static final int StudentType_VALUE = 0;
       /**
        * <code>WorkerType = 1;</code>
        */
@@ -220,6 +232,8 @@ public final class MyDataInfo {
       }
 
       /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
@@ -227,9 +241,13 @@ public final class MyDataInfo {
         return forNumber(value);
       }
 
+      /**
+       * @param value The numeric wire value of the corresponding enum entry.
+       * @return The enum associated with the given numeric wire value.
+       */
       public static DataType forNumber(int value) {
         switch (value) {
-          case 0: return StudentTyp;
+          case 0: return StudentType;
           case 1: return WorkerType;
           default: return null;
         }
@@ -249,6 +267,10 @@ public final class MyDataInfo {
 
       public final com.google.protobuf.Descriptors.EnumValueDescriptor
           getValueDescriptor() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalStateException(
+              "Can't get the descriptor of an unrecognized enum value.");
+        }
         return getDescriptor().getValues().get(ordinal());
       }
       public final com.google.protobuf.Descriptors.EnumDescriptor
@@ -286,7 +308,8 @@ public final class MyDataInfo {
     private int dataBodyCase_ = 0;
     private java.lang.Object dataBody_;
     public enum DataBodyCase
-        implements com.google.protobuf.Internal.EnumLite {
+        implements com.google.protobuf.Internal.EnumLite,
+            com.google.protobuf.AbstractMessage.InternalOneOfEnum {
       STUDENT(2),
       WORKER(3),
       DATABODY_NOT_SET(0);
@@ -295,6 +318,8 @@ public final class MyDataInfo {
         this.value = value;
       }
       /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
        * @deprecated Use {@link #forNumber(int)} instead.
        */
       @java.lang.Deprecated
@@ -329,8 +354,9 @@ public final class MyDataInfo {
      * </pre>
      *
      * <code>.MyMessage.DataType data_type = 1;</code>
+     * @return The enum numeric value on the wire for dataType.
      */
-    public int getDataTypeValue() {
+    @java.lang.Override public int getDataTypeValue() {
       return dataType_;
     }
     /**
@@ -339,8 +365,9 @@ public final class MyDataInfo {
      * </pre>
      *
      * <code>.MyMessage.DataType data_type = 1;</code>
+     * @return The dataType.
      */
-    public codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType getDataType() {
+    @java.lang.Override public codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType getDataType() {
       @SuppressWarnings("deprecation")
       codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType result = codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.valueOf(dataType_);
       return result == null ? codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.UNRECOGNIZED : result;
@@ -349,13 +376,17 @@ public final class MyDataInfo {
     public static final int STUDENT_FIELD_NUMBER = 2;
     /**
      * <code>.Student student = 2;</code>
+     * @return Whether the student field is set.
      */
+    @java.lang.Override
     public boolean hasStudent() {
       return dataBodyCase_ == 2;
     }
     /**
      * <code>.Student student = 2;</code>
+     * @return The student.
      */
+    @java.lang.Override
     public codec.protobuf.mutiTypeDemo2.MyDataInfo.Student getStudent() {
       if (dataBodyCase_ == 2) {
          return (codec.protobuf.mutiTypeDemo2.MyDataInfo.Student) dataBody_;
@@ -365,6 +396,7 @@ public final class MyDataInfo {
     /**
      * <code>.Student student = 2;</code>
      */
+    @java.lang.Override
     public codec.protobuf.mutiTypeDemo2.MyDataInfo.StudentOrBuilder getStudentOrBuilder() {
       if (dataBodyCase_ == 2) {
          return (codec.protobuf.mutiTypeDemo2.MyDataInfo.Student) dataBody_;
@@ -375,13 +407,17 @@ public final class MyDataInfo {
     public static final int WORKER_FIELD_NUMBER = 3;
     /**
      * <code>.Worker worker = 3;</code>
+     * @return Whether the worker field is set.
      */
+    @java.lang.Override
     public boolean hasWorker() {
       return dataBodyCase_ == 3;
     }
     /**
      * <code>.Worker worker = 3;</code>
+     * @return The worker.
      */
+    @java.lang.Override
     public codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker getWorker() {
       if (dataBodyCase_ == 3) {
          return (codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker) dataBody_;
@@ -391,6 +427,7 @@ public final class MyDataInfo {
     /**
      * <code>.Worker worker = 3;</code>
      */
+    @java.lang.Override
     public codec.protobuf.mutiTypeDemo2.MyDataInfo.WorkerOrBuilder getWorkerOrBuilder() {
       if (dataBodyCase_ == 3) {
          return (codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker) dataBody_;
@@ -412,7 +449,7 @@ public final class MyDataInfo {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (dataType_ != codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.StudentTyp.getNumber()) {
+      if (dataType_ != codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.StudentType.getNumber()) {
         output.writeEnum(1, dataType_);
       }
       if (dataBodyCase_ == 2) {
@@ -430,7 +467,7 @@ public final class MyDataInfo {
       if (size != -1) return size;
 
       size = 0;
-      if (dataType_ != codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.StudentTyp.getNumber()) {
+      if (dataType_ != codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.StudentType.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, dataType_);
       }
@@ -457,25 +494,22 @@ public final class MyDataInfo {
       }
       codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage other = (codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage) obj;
 
-      boolean result = true;
-      result = result && dataType_ == other.dataType_;
-      result = result && getDataBodyCase().equals(
-          other.getDataBodyCase());
-      if (!result) return false;
+      if (dataType_ != other.dataType_) return false;
+      if (!getDataBodyCase().equals(other.getDataBodyCase())) return false;
       switch (dataBodyCase_) {
         case 2:
-          result = result && getStudent()
-              .equals(other.getStudent());
+          if (!getStudent()
+              .equals(other.getStudent())) return false;
           break;
         case 3:
-          result = result && getWorker()
-              .equals(other.getWorker());
+          if (!getWorker()
+              .equals(other.getWorker())) return false;
           break;
         case 0:
         default:
       }
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -688,35 +722,35 @@ public final class MyDataInfo {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -797,8 +831,9 @@ public final class MyDataInfo {
        * </pre>
        *
        * <code>.MyMessage.DataType data_type = 1;</code>
+       * @return The enum numeric value on the wire for dataType.
        */
-      public int getDataTypeValue() {
+      @java.lang.Override public int getDataTypeValue() {
         return dataType_;
       }
       /**
@@ -807,8 +842,11 @@ public final class MyDataInfo {
        * </pre>
        *
        * <code>.MyMessage.DataType data_type = 1;</code>
+       * @param value The enum numeric value on the wire for dataType to set.
+       * @return This builder for chaining.
        */
       public Builder setDataTypeValue(int value) {
+        
         dataType_ = value;
         onChanged();
         return this;
@@ -819,7 +857,9 @@ public final class MyDataInfo {
        * </pre>
        *
        * <code>.MyMessage.DataType data_type = 1;</code>
+       * @return The dataType.
        */
+      @java.lang.Override
       public codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType getDataType() {
         @SuppressWarnings("deprecation")
         codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType result = codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType.valueOf(dataType_);
@@ -831,6 +871,8 @@ public final class MyDataInfo {
        * </pre>
        *
        * <code>.MyMessage.DataType data_type = 1;</code>
+       * @param value The dataType to set.
+       * @return This builder for chaining.
        */
       public Builder setDataType(codec.protobuf.mutiTypeDemo2.MyDataInfo.MyMessage.DataType value) {
         if (value == null) {
@@ -847,6 +889,7 @@ public final class MyDataInfo {
        * </pre>
        *
        * <code>.MyMessage.DataType data_type = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearDataType() {
         
@@ -859,13 +902,17 @@ public final class MyDataInfo {
           codec.protobuf.mutiTypeDemo2.MyDataInfo.Student, codec.protobuf.mutiTypeDemo2.MyDataInfo.Student.Builder, codec.protobuf.mutiTypeDemo2.MyDataInfo.StudentOrBuilder> studentBuilder_;
       /**
        * <code>.Student student = 2;</code>
+       * @return Whether the student field is set.
        */
+      @java.lang.Override
       public boolean hasStudent() {
         return dataBodyCase_ == 2;
       }
       /**
        * <code>.Student student = 2;</code>
+       * @return The student.
        */
+      @java.lang.Override
       public codec.protobuf.mutiTypeDemo2.MyDataInfo.Student getStudent() {
         if (studentBuilder_ == null) {
           if (dataBodyCase_ == 2) {
@@ -959,6 +1006,7 @@ public final class MyDataInfo {
       /**
        * <code>.Student student = 2;</code>
        */
+      @java.lang.Override
       public codec.protobuf.mutiTypeDemo2.MyDataInfo.StudentOrBuilder getStudentOrBuilder() {
         if ((dataBodyCase_ == 2) && (studentBuilder_ != null)) {
           return studentBuilder_.getMessageOrBuilder();
@@ -995,13 +1043,17 @@ public final class MyDataInfo {
           codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker, codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker.Builder, codec.protobuf.mutiTypeDemo2.MyDataInfo.WorkerOrBuilder> workerBuilder_;
       /**
        * <code>.Worker worker = 3;</code>
+       * @return Whether the worker field is set.
        */
+      @java.lang.Override
       public boolean hasWorker() {
         return dataBodyCase_ == 3;
       }
       /**
        * <code>.Worker worker = 3;</code>
+       * @return The worker.
        */
+      @java.lang.Override
       public codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker getWorker() {
         if (workerBuilder_ == null) {
           if (dataBodyCase_ == 3) {
@@ -1095,6 +1147,7 @@ public final class MyDataInfo {
       /**
        * <code>.Worker worker = 3;</code>
        */
+      @java.lang.Override
       public codec.protobuf.mutiTypeDemo2.MyDataInfo.WorkerOrBuilder getWorkerOrBuilder() {
         if ((dataBodyCase_ == 3) && (workerBuilder_ != null)) {
           return workerBuilder_.getMessageOrBuilder();
@@ -1129,7 +1182,7 @@ public final class MyDataInfo {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1185,15 +1238,18 @@ public final class MyDataInfo {
 
     /**
      * <code>int32 id = 1;</code>
+     * @return The id.
      */
     int getId();
 
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
@@ -1201,7 +1257,7 @@ public final class MyDataInfo {
   /**
    * Protobuf type {@code Student}
    */
-  public  static final class Student extends
+  public static final class Student extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:Student)
       StudentOrBuilder {
@@ -1211,8 +1267,14 @@ public final class MyDataInfo {
       super(builder);
     }
     private Student() {
-      id_ = 0;
       name_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Student();
     }
 
     @java.lang.Override
@@ -1228,7 +1290,6 @@ public final class MyDataInfo {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1251,7 +1312,7 @@ public final class MyDataInfo {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1286,7 +1347,9 @@ public final class MyDataInfo {
     private int id_;
     /**
      * <code>int32 id = 1;</code>
+     * @return The id.
      */
+    @java.lang.Override
     public int getId() {
       return id_;
     }
@@ -1295,7 +1358,9 @@ public final class MyDataInfo {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 2;</code>
+     * @return The name.
      */
+    @java.lang.Override
     public java.lang.String getName() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
@@ -1310,7 +1375,9 @@ public final class MyDataInfo {
     }
     /**
      * <code>string name = 2;</code>
+     * @return The bytes for name.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getNameBytes() {
       java.lang.Object ref = name_;
@@ -1376,13 +1443,12 @@ public final class MyDataInfo {
       }
       codec.protobuf.mutiTypeDemo2.MyDataInfo.Student other = (codec.protobuf.mutiTypeDemo2.MyDataInfo.Student) obj;
 
-      boolean result = true;
-      result = result && (getId()
-          == other.getId());
-      result = result && getName()
-          .equals(other.getName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (getId()
+          != other.getId()) return false;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -1567,35 +1633,35 @@ public final class MyDataInfo {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1648,12 +1714,16 @@ public final class MyDataInfo {
       private int id_ ;
       /**
        * <code>int32 id = 1;</code>
+       * @return The id.
        */
+      @java.lang.Override
       public int getId() {
         return id_;
       }
       /**
        * <code>int32 id = 1;</code>
+       * @param value The id to set.
+       * @return This builder for chaining.
        */
       public Builder setId(int value) {
         
@@ -1663,6 +1733,7 @@ public final class MyDataInfo {
       }
       /**
        * <code>int32 id = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearId() {
         
@@ -1674,6 +1745,7 @@ public final class MyDataInfo {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 2;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -1689,6 +1761,7 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 2;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -1705,6 +1778,8 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -1718,6 +1793,7 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -1727,6 +1803,8 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 2;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -1742,7 +1820,7 @@ public final class MyDataInfo {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -1798,23 +1876,26 @@ public final class MyDataInfo {
 
     /**
      * <code>string name = 1;</code>
+     * @return The name.
      */
     java.lang.String getName();
     /**
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
     com.google.protobuf.ByteString
         getNameBytes();
 
     /**
      * <code>int32 age = 2;</code>
+     * @return The age.
      */
     int getAge();
   }
   /**
    * Protobuf type {@code Worker}
    */
-  public  static final class Worker extends
+  public static final class Worker extends
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:Worker)
       WorkerOrBuilder {
@@ -1825,7 +1906,13 @@ public final class MyDataInfo {
     }
     private Worker() {
       name_ = "";
-      age_ = 0;
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new Worker();
     }
 
     @java.lang.Override
@@ -1841,7 +1928,6 @@ public final class MyDataInfo {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
-      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -1864,7 +1950,7 @@ public final class MyDataInfo {
               break;
             }
             default: {
-              if (!parseUnknownFieldProto3(
+              if (!parseUnknownField(
                   input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
@@ -1899,7 +1985,9 @@ public final class MyDataInfo {
     private volatile java.lang.Object name_;
     /**
      * <code>string name = 1;</code>
+     * @return The name.
      */
+    @java.lang.Override
     public java.lang.String getName() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
@@ -1914,7 +2002,9 @@ public final class MyDataInfo {
     }
     /**
      * <code>string name = 1;</code>
+     * @return The bytes for name.
      */
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getNameBytes() {
       java.lang.Object ref = name_;
@@ -1933,7 +2023,9 @@ public final class MyDataInfo {
     private int age_;
     /**
      * <code>int32 age = 2;</code>
+     * @return The age.
      */
+    @java.lang.Override
     public int getAge() {
       return age_;
     }
@@ -1989,13 +2081,12 @@ public final class MyDataInfo {
       }
       codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker other = (codec.protobuf.mutiTypeDemo2.MyDataInfo.Worker) obj;
 
-      boolean result = true;
-      result = result && getName()
-          .equals(other.getName());
-      result = result && (getAge()
-          == other.getAge());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
+      if (!getName()
+          .equals(other.getName())) return false;
+      if (getAge()
+          != other.getAge()) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
     }
 
     @java.lang.Override
@@ -2180,35 +2271,35 @@ public final class MyDataInfo {
 
       @java.lang.Override
       public Builder clone() {
-        return (Builder) super.clone();
+        return super.clone();
       }
       @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.setField(field, value);
+        return super.setField(field, value);
       }
       @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
+        return super.clearField(field);
       }
       @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
+        return super.clearOneof(oneof);
       }
       @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
+        return super.setRepeatedField(field, index, value);
       }
       @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
+        return super.addRepeatedField(field, value);
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -2261,6 +2352,7 @@ public final class MyDataInfo {
       private java.lang.Object name_ = "";
       /**
        * <code>string name = 1;</code>
+       * @return The name.
        */
       public java.lang.String getName() {
         java.lang.Object ref = name_;
@@ -2276,6 +2368,7 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 1;</code>
+       * @return The bytes for name.
        */
       public com.google.protobuf.ByteString
           getNameBytes() {
@@ -2292,6 +2385,8 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 1;</code>
+       * @param value The name to set.
+       * @return This builder for chaining.
        */
       public Builder setName(
           java.lang.String value) {
@@ -2305,6 +2400,7 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 1;</code>
+       * @return This builder for chaining.
        */
       public Builder clearName() {
         
@@ -2314,6 +2410,8 @@ public final class MyDataInfo {
       }
       /**
        * <code>string name = 1;</code>
+       * @param value The bytes for name to set.
+       * @return This builder for chaining.
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
@@ -2330,12 +2428,16 @@ public final class MyDataInfo {
       private int age_ ;
       /**
        * <code>int32 age = 2;</code>
+       * @return The age.
        */
+      @java.lang.Override
       public int getAge() {
         return age_;
       }
       /**
        * <code>int32 age = 2;</code>
+       * @param value The age to set.
+       * @return This builder for chaining.
        */
       public Builder setAge(int value) {
         
@@ -2345,6 +2447,7 @@ public final class MyDataInfo {
       }
       /**
        * <code>int32 age = 2;</code>
+       * @return This builder for chaining.
        */
       public Builder clearAge() {
         
@@ -2355,7 +2458,7 @@ public final class MyDataInfo {
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
+        return super.setUnknownFields(unknownFields);
       }
 
       @java.lang.Override
@@ -2430,27 +2533,19 @@ public final class MyDataInfo {
   static {
     java.lang.String[] descriptorData = {
       "\n5src/main/java/codec/protobuf/mutiTypeD" +
-      "emo2/Data.proto\"\243\001\n\tMyMessage\022&\n\tdata_ty" +
+      "emo2/Data.proto\"\244\001\n\tMyMessage\022&\n\tdata_ty" +
       "pe\030\001 \001(\0162\023.MyMessage.DataType\022\033\n\007student" +
       "\030\002 \001(\0132\010.StudentH\000\022\031\n\006worker\030\003 \001(\0132\007.Wor" +
-      "kerH\000\"*\n\010DataType\022\016\n\nStudentTyp\020\000\022\016\n\nWor" +
-      "kerType\020\001B\n\n\010dataBody\"#\n\007Student\022\n\n\002id\030\001" +
-      " \001(\005\022\014\n\004name\030\002 \001(\t\"#\n\006Worker\022\014\n\004name\030\001 \001" +
-      "(\t\022\013\n\003age\030\002 \001(\005B,\n\034codec.protobuf.mutiTy" +
-      "peDemo2B\nMyDataInfoH\001b\006proto3"
+      "kerH\000\"+\n\010DataType\022\017\n\013StudentType\020\000\022\016\n\nWo" +
+      "rkerType\020\001B\n\n\010dataBody\"#\n\007Student\022\n\n\002id\030" +
+      "\001 \001(\005\022\014\n\004name\030\002 \001(\t\"#\n\006Worker\022\014\n\004name\030\001 " +
+      "\001(\t\022\013\n\003age\030\002 \001(\005B,\n\034codec.protobuf.mutiT" +
+      "ypeDemo2B\nMyDataInfoH\001b\006proto3"
     };
-    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
-          public com.google.protobuf.ExtensionRegistry assignDescriptors(
-              com.google.protobuf.Descriptors.FileDescriptor root) {
-            descriptor = root;
-            return null;
-          }
-        };
-    com.google.protobuf.Descriptors.FileDescriptor
+    descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-        }, assigner);
+        });
     internal_static_MyMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_MyMessage_fieldAccessorTable = new

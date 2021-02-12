@@ -7,7 +7,7 @@ option java_outer_classname = "MyDataInfo";
 message MyMessage{
   //定义一个枚举类型
   enum DataType{
-    StudentTyp = 0;//在proto3开始，编号从0开始
+    StudentType = 0;//在proto3开始，编号从0开始
     WorkerType = 1;
   }
   //用data_type标识传递的是哪一个枚举类型

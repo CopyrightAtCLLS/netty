@@ -4,12 +4,13 @@ import codec.protobuf.simpleDemo1.StudentPOJO;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.SimpleChannelInboundHandler;
 import io.netty.util.CharsetUtil;
 
 /**
  * 自定义handler需要继承netty规定好的某个HandlerAdapter
  */
-public class ServerHandler extends ChannelInboundHandlerAdapter {
+public class ServerHandler extends SimpleChannelInboundHandler<MyDataInfo.MyMessage> {
     //数据读取事件
 
     /**
@@ -18,10 +19,18 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
      * @throws Exception
      */
     @Override
-    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        //读取客户端发送的StudentPOJO.Student
-        StudentPOJO.Student student=(StudentPOJO.Student) msg;
-        System.out.println("data from client = "+student.getId()+" "+student.getName());
+    public void channelRead0(ChannelHandlerContext ctx, MyDataInfo.MyMessage msg) throws Exception {
+        //根据dataType显示不同的信息
+        MyDataInfo.MyMessage.DataType dataType=msg.getDataType();
+        if(dataType== MyDataInfo.MyMessage.DataType.StudentType){
+            MyDataInfo.Student student = msg.getStudent();
+            System.out.println("data from client = "+student.getId()+" "+student.getName());
+        }else if(dataType== MyDataInfo.MyMessage.DataType.WorkerType){
+            MyDataInfo.Worker worker = msg.getWorker();
+            System.out.println("data from client = "+worker.getAge()+" "+worker.getName());
+        }else {
+            System.out.println("传输类型不正确");
+        }
     }
 
     //数据读取完成

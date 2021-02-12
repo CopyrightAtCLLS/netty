@@ -29,7 +29,7 @@ public class Server {
                         protected void initChannel(SocketChannel socketChannel) throws Exception {
                             ChannelPipeline pipeline = socketChannel.pipeline();
                             //pipeline中加入解码器,要指定对哪种对象进行解码
-                            pipeline.addLast("decoder",new ProtobufDecoder(StudentPOJO.Student.getDefaultInstance()));
+                            pipeline.addLast("decoder",new ProtobufDecoder(MyDataInfo.MyMessage.getDefaultInstance()));
                             pipeline.addLast(new ServerHandler());
                         }
                     });//给workerGroup的eventloop对应的管道设置处理器

@@ -6,13 +6,25 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import io.netty.util.CharsetUtil;
 
+import java.util.Random;
+
 public class ClientHandler extends ChannelInboundHandlerAdapter {
     //通道就绪时，触发该方法
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        //发送Student对象到服务器
-        StudentPOJO.Student student = StudentPOJO.Student.newBuilder().setId(1).setName("clls").build();
-        ctx.writeAndFlush(student);
+        //随机发送Student或者Worker对象到服务器
+        int random = new Random().nextInt(3);
+        MyDataInfo.MyMessage myMessage=null;
+
+        if(0==random){//发送Student
+            myMessage= MyDataInfo.MyMessage.newBuilder().setDataType(MyDataInfo.MyMessage.DataType.StudentType)
+                    .setStudent(MyDataInfo.Student.newBuilder().setId(2).setName("clls").build()).build();
+        }else {//发送Worker
+            myMessage= MyDataInfo.MyMessage.newBuilder().setDataType(MyDataInfo.MyMessage.DataType.WorkerType)
+                    .setWorker(MyDataInfo.Worker.newBuilder().setAge(20).setName("clls").build()).build();
+        }
+
+        ctx.writeAndFlush(myMessage);
     }
     //当通道有读事件时，触发
 
