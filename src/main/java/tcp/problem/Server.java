@@ -1,4 +1,4 @@
-package tcp;
+package tcp.problem;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -9,6 +9,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * 演示TCP粘包和拆包
  */
+@SuppressWarnings("all")
 public class Server {
     public static void main(String[] args) throws InterruptedException {
         EventLoopGroup bossGroup=new NioEventLoopGroup(1);
