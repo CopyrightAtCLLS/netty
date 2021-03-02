@@ -20,7 +20,7 @@ public class BIODemo1 {
         while (true){
             //连接成功
             final Socket socket=serverSocket.accept();
-            System.out.println("established\n");
+            System.out.println("connection established\n");
             //创建线程进行通信
             executorService.execute(()->{communicate(socket);});
         }
