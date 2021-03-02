@@ -14,7 +14,7 @@ public class BIODemo1 {
         //线程池
         ExecutorService executorService= Executors.newCachedThreadPool();
         //创建serversocket
-        ServerSocket serverSocket=new ServerSocket(6666);
+        ServerSocket serverSocket=new ServerSocket(9999);
         System.out.println("server started...");
         //监听，等待连接
         while (true){
